@@ -1,9 +1,13 @@
+<?php
+//include auth_session.php file on all user panel pages
+include("auth_session.php");
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8" />
-    <title>Add Inventory</title>
+    <title>Add Inventory - <?php echo $_SESSION['username']; ?></title>
     <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -25,8 +29,11 @@
         $qty    = stripslashes($_REQUEST['qty']);
         $qty    = mysqli_real_escape_string($con, $qty);
         $create_datetime = date("Y-m-d H:i:s");
-        $query    = "INSERT into `inventory` (itemname, qty, inventory_id)
-                     VALUES ('$itemname', '$qty', '$timestamp')";
+        // echo 'test mani';
+        // echo $_SESSION['username'];
+        $created_by = $_SESSION['username'];
+        $query    = "INSERT into `inventory` (itemname, qty, inventory_id, created_by)
+                     VALUES ('$itemname', '$qty', '$timestamp','$created_by' )";
         $result   = mysqli_query($con, $query);
         if ($result) {
             echo "<div class='form'>

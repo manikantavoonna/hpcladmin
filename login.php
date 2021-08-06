@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8"/>
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css"/>
+    <meta charset="utf-8">
+    <title>Login to Inventory Management</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 </head>
+
 <body>
-<?php
+    <?php
     require('db.php');
     session_start();
     // When form submitted, check and create user session.
@@ -34,13 +48,14 @@
 ?>
     <form class="form" method="post" name="login">
         <h1 class="login-title">Login</h1>
-        <input type="text" class="login-input" name="username" placeholder="Username" autofocus="true"/>
-        <input type="password" class="login-input" name="password" placeholder="Password"/>
-        <input type="submit" value="Login" name="submit" class="login-button"/>
+        <input type="text" class="login-input" name="username" placeholder="Username" autofocus="true" />
+        <input type="password" class="login-input" name="password" placeholder="Password" />
+        <input type="submit" value="Login" name="submit" class="login-button" />
         <p class="link"><a href="registration.php">New Registration</a></p>
-  </form>
-<?php
+    </form>
+    <?php
     }
 ?>
 </body>
+
 </html>

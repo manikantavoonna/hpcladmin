@@ -1,3 +1,7 @@
+<?php
+//include auth_session.php file on all user panel pages
+include("auth_session.php");
+?>
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +23,6 @@
         <h1>HPCL Inventory Management</h1>
         <p>Manage inventories in and out of the company</p>
     </div>
-    <p><a href="addinventory.php">Add Inventory</a></p>
     <?php
 error_reporting(-1); // reports all errors
 ini_set("display_errors", "1"); // shows all errors
@@ -39,6 +42,7 @@ if ($result->num_rows > 0) {
     // output data of each row
 
 echo '<div class="container">';
+echo '<p><a href="addinventory.php">Add Inventory</a></p>';
 echo '<table class="table table-striped table-responsive">';
 echo '<thead>';
 echo '<tr>';
@@ -47,6 +51,7 @@ echo '<th>Inventory Id</th>';
 echo '<th>Item Name</th>';
 echo '<th>Quantity</th>';
 echo '<th>Created On  </th>';
+echo '<th>Created By  </th>';
 echo '</tr>';
 echo '</thead>';
 echo '<tbody>';
@@ -61,7 +66,7 @@ echo '<tbody>';
 // }
 // echo "<td>".$row["id"]."</td><td>".$row["firstname"]." ".$row["lastname"]."</td>";
 while($row = $result->fetch_assoc()) {
-  echo "<tr><td>".$row["id"]."</td><td>".$row["inventory_id"]."</td><td>".$row["itemname"]."</td><td>".$row["qty"]."</td><td>".$row["created_at"]."</td></tr>";
+  echo "<tr><td>".$row["id"]."</td><td>".$row["inventory_id"]."</td><td>".$row["itemname"]."</td><td>".$row["qty"]."</td><td>".$row["created_at"]."</td><td>".$row["created_by"]."</td></tr>";
 
   // echo "<br> id: ". $row["id"]. "<br>";
 }
@@ -78,40 +83,6 @@ echo '</table>';
 
 $con->close();
 ?>
-    <!-- 
-    <div class="container">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>S.No</th>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Mary</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                </tr>
-            </tbody>
-        </table>
-    </div> -->
-
     <p><a href="logout.php">Logout</a></p>
     </div>
 </body>
